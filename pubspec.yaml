@@ -2,7 +2,7 @@ name: flutter_openvidu
 description: OpenVidu client sdk for Flutter
 version: 0.1.0
 author: 416828041@qq.com<Enok>
-homepage:
+homepage: https://github.com/fengmu456/flutter-openvidu
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"

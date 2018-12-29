@@ -26,7 +26,7 @@ class TestRoom extends StatefulWidget {
 
 class _TestRoomState extends State<TestRoom> {
   OpenVidu openVidu;
-  Map<String, RTCVideoView> views = Map();
+  Map<String, VideoView> views = Map();
 
   @override
   initState() {
@@ -36,10 +36,10 @@ class _TestRoomState extends State<TestRoom> {
       turnServer: "${widget.server}:3478",
       connectionChangeCallback: (OpenViduConnection conn, type) async {
         if (type == CONNECTION_CHANGE_TYPE.CREATE) {
-          RTCVideoRenderer renderer = RTCVideoRenderer();
+          VideoRenderer renderer = VideoRenderer();
           await renderer.initialize();
           renderer.srcObject = conn.stream;
-          RTCVideoView view = RTCVideoView(renderer);
+          VideoView view = VideoView(renderer, 0.56);
           views[conn.sortId] = view;
         } else if (type == CONNECTION_CHANGE_TYPE.DESTROY) {
           var view = views[conn.sortId];

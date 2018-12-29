@@ -7,6 +7,7 @@ import 'package:flutter_webrtc/webrtc.dart';
 import 'connection.dart';
 
 export 'connection.dart';
+export 'openvidu_video_view.dart';
 export 'package:flutter_webrtc/webrtc.dart';
 
 void debug(String name, data) {
@@ -22,13 +23,13 @@ typedef ConnectionChangeCallback = Function(
 );
 
 class OpenVidu {
-  final Map<String, dynamic> mediaConstraints = {
+  Map<String, dynamic> mediaConstraints = {
     "audio": true,
     "video": {
       "mandatory": {
-        "minWidth": '640',
-        "minHeight": '480',
-        "minFrameRate": '30',
+        "width": "480",
+        "height": "640",
+        "minFrameRate": 30,
       },
       "facingMode": "user",
       "optional": [],
